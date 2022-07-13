@@ -1,17 +1,17 @@
 <template>
   <div>
     <ul>
-      <li v-for="(todoItem, index) in todoItems" :key="index">
+      <li v-for="(todoItem, index) in todoItems" :key="todoItem.index">
         <i
           class="checkBtn fas fa-check"
           aria-hidden="true"
           :class="{
             checkBtnCompleted: todoItem.completed,
           }"
-          @click="toggleComplete(todoItem, index)"
+          @click="toggleComplete(todoItem)"
         ></i>
         <span :class="{ textCompleted: todoItem.completed }"> {{ todoItem.item }}</span>
-        <span class="removeBtn" @click="removeTodo(todoItem)">
+        <span class="removeBtn" @click="removeTodo(todoItem, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>

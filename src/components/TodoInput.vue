@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input type="text" v-model="newTodoItem" />
-    <button @click="addTodo" @keyup.enter="addTodo">add todo</button>
+    <input type="text" v-model="newTodoItem" @keyup.enter.prevent="addTodo" />
+    <button @click="addTodo">add todo</button>
   </div>
 </template>
 

@@ -8,7 +8,7 @@
 export default {
   methods: {
     clearAll() {
-      localStorage.clear()
+      this.$emit("clearAll") //이벤트 명을 전달해주어야 한다.
     },
   },
 }

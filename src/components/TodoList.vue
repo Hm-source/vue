@@ -8,10 +8,10 @@
           :class="{
             checkBtnCompleted: todoItem.completed,
           }"
-          @click="toggleComplete(todoItem)"
+          @click="toggleComplete(todoItem, index)"
         ></i>
         <span :class="{ textCompleted: todoItem.completed }"> {{ todoItem.item }}</span>
-        <span class="removeBtn" @click="removeTodo(todoItem, index)">
+        <span class="removeBtn" @click="removeTodo(todoItem)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -19,40 +19,15 @@
   </div>
 </template>
 
-<!-- <li v-for="(todoItem,index) in todoItems" v-bind:key="todoItem.item" class="shadow">
-            <i class="checkBtn fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="toggleComplete(todoItem,index)"></i>
-            <span v-bind:class="{textCompleted: todoItem.completed}">{{todoItem.item}}</span>
-            <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
-                <i class="fas fa-trash-alt"></i>
-            </span> -->
-
 <script>
 export default {
-  data() {
-    return {
-      todoItems: [],
-    }
-  },
-  created() {
-    if (localStorage.length > 0) {
-      for (var i = 0; i < localStorage.length; i++) {
-        if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-          this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
-        }
-      }
-    }
-  },
+  props: ["propsdata"],
   methods: {
     removeTodo(todoItem, index) {
-      localStorage.removeItem(todoItem.item) // removeItem이 작동하려면 keyname을 적어줘야 한다. todoItem이라고만 해서 remove되지 않았다.
-      console.log(todoItem.item)
-      this.todoItems.splice(index, 1)
+      this.$emit("removeItem", todoItem, index)
     },
     toggleComplete(todoItem) {
-      todoItem.completed = !todoItem.completed
-      //로컬 스토리지 데이터 갱신
-      localStorage.removeItem(todoItem.item)
-      localStorage.setItem(todoItem.item, JSON.stringify(todoItem))
+      this.$emit("toggleItem", todoItem)
     },
   },
 }

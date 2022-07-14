@@ -1,14 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <TodoHeader />
-  <TodoInput @addItem="addOneItem"></TodoInput>
-  <TodoList :propsdata="todoItems" @removeItem="removeOneItem" @toggleItem="toggleOneItem"></TodoList>
-  <TodoFooter @clearAll="clearAllItems"></TodoFooter>
-  <TodoApp />
+  <div>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <TodoHeader />
+    <TodoInput @addItem="addOneItem"></TodoInput>
+    <TodoList :propsdata="todoItems" @removeItem="removeOneItem" @toggleItem="toggleOneItem"></TodoList>
+    <TodoFooter @clearAll="clearAllItems"></TodoFooter>
+  </div>
 </template>
 
 <script>
-import TodoApp from "./components/TodoApp.vue"
 import TodoInput from "./components/TodoInput.vue"
 import TodoHeader from "./components/TodoHeader.vue"
 import TodoFooter from "./components/TodoFooter.vue"
@@ -22,6 +22,7 @@ export default {
     addOneItem(todoItem) {
       var obj = { completed: false, item: todoItem }
       localStorage.setItem(todoItem, JSON.stringify(obj))
+      console.log(obj)
       this.todoItems.push(obj)
     },
     removeOneItem(todoItem, index) {
@@ -48,7 +49,6 @@ export default {
     }
   },
   components: {
-    TodoApp,
     TodoHeader,
     TodoInput,
     TodoFooter,

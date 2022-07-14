@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="(todoItem, index) in todoItems" :key="todoItem.index">
+      <li v-for="(todoItem, index) in propsdata" :key="index">
         <i
           class="checkBtn fas fa-check"
           aria-hidden="true"

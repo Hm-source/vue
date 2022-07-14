@@ -1,4 +1,5 @@
 <template>
+<img alt="Vue logo" src="../assets/logo.png" />
   <div>
     <h1>My Todo List</h1>
   </div>

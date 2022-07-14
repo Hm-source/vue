@@ -1,14 +1,11 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
   <TodoHeader />
   <TodoInput />
   <TodoList />
   <TodoFoot />
-  <TodoApp />
 </template>
 
 <script>
-import TodoApp from "./components/TodoApp.vue"
 import TodoInput from "./components/TodoInput.vue"
 import TodoHeader from "./components/TodoHeader.vue"
 import TodoFoot from "./components/TodoFooter.vue"
@@ -17,7 +14,6 @@ import TodoList from "./components/TodoList.vue"
 export default {
   name: "App",
   components: {
-    TodoApp,
     TodoHeader,
     TodoInput,
     TodoFoot,

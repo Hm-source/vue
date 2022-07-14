@@ -5,11 +5,10 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex"
 export default {
   methods: {
-    clearAll() {
-      this.$emit("clearAll") //이벤트 명을 전달해주어야 한다.
-    },
+    ...mapMutations["clearAll"],
   },
 }
 </script>

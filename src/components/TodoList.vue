@@ -25,6 +25,7 @@ export default {
   methods: {
     removeTodo(todoItem, index) {
       this.$emit("removeItem", todoItem, index)
+      // this.propsData.splice(index, 1) 자식 컴포넌트는 props로 받은 데이터를 가공할 수 없다. 참조함.
     },
     toggleComplete(todoItem) {
       this.$emit("toggleItem", todoItem)

@@ -32,13 +32,14 @@ const store = createStore({
         alert("내용 입력하세요.")
       }
     },
-    removeOneItem(state, todoItem, index) {
-      // localStorage.removeItem(state.todoItems.item)
+    removeOneItem(state, todoItem) {
+      const index = state.todoItems.findIndex((todo) => todo === todoItem)
       state.todoItems.splice(index, 1)
     },
     toggleComplete(state, todoItem) {
-      const index = state.todoItems.findIndex((item) => item.index === todoItem.index)
+      const index = state.todoItems.findIndex((todo) => todo === todoItem)
       state.todoItems[index].completed = !state.todoItems[index].completed
+      console.log(index)
       // localStorage.removeItem(todoItem)
       // localStorage.setItem(todoItem.item, JSON.stringify(todoItem[index]))
     },

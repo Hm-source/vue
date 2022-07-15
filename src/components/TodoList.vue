@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="(todoItem, index) in getTodoItems" :key="index">
+      <li v-for="(todoItem, index) in getTodoItems" :key="todoItem.index">
         <i
           class="checkBtn fas fa-check"
           aria-hidden="true"
@@ -27,8 +27,8 @@ export default {
     ...mapGetters(["getTodoItems"]),
   },
   methods: {
-    removeTodo(todoItem, index) {
-      this.$store.commit("removeOneItem", todoItem, index)
+    removeTodo(todoItem) {
+      this.$store.commit("removeOneItem", todoItem)
     },
     toggleComplete(todoItem, index) {
       this.$store.commit("toggleComplete", todoItem, index)

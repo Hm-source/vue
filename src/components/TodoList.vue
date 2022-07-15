@@ -27,11 +27,11 @@ export default {
     ...mapGetters(["getTodoItems"]),
   },
   methods: {
-    removeTodo() {
-      this.$store.commit("removeOneItem")
+    removeTodo(todoItem, index) {
+      this.$store.commit("removeOneItem", todoItem, index)
     },
-    toggleComplete() {
-      this.$store.commit("toggleComplete")
+    toggleComplete(todoItem, index) {
+      this.$store.commit("toggleComplete", todoItem, index)
     },
   },
 }

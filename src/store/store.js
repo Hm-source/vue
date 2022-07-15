@@ -33,13 +33,14 @@ const store = createStore({
       }
     },
     removeOneItem(state, todoItem, index) {
-      localStorage.removeItem(todoItem)
+      // localStorage.removeItem(state.todoItems.item)
       state.todoItems.splice(index, 1)
     },
-    toggleComplete(state, todoItem, index) {
-      state.todoItems.completed = !state.todoItems.completed
-      localStorage.removeItem(todoItem)
-      localStorage.setItem(todoItem.item, JSON.stringify(todoItem[index]))
+    toggleComplete(state, todoItem) {
+      const index = state.todoItems.findIndex((item) => item.index === todoItem.index)
+      state.todoItems[index].completed = !state.todoItems[index].completed
+      // localStorage.removeItem(todoItem)
+      // localStorage.setItem(todoItem.item, JSON.stringify(todoItem[index]))
     },
     clearAll(state) {
       localStorage.clear()

@@ -42,6 +42,8 @@ const store = createStore({
       state.todoItems[index].completed = !state.todoItems[index].completed
       console.log(index)
       console.log(todoItem)
+      localStorage.removeItem(todoItem.item)
+      localStorage.setItem(todoItem.item, JSON.stringify(todoItem))
       
     },
     clearAll(state) {

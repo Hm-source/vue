@@ -8,7 +8,7 @@
           :class="{
             checkBtnCompleted: todoItem.completed,
           }"
-          @click="toggleComplete(todoItem, index)"
+          @click="toggle(todoItem, index)"
         ></i>
         <span :class="{ textCompleted: todoItem.completed }"> {{ todoItem.item }}</span>
         <span class="removeBtn" @click="removeOneItem(todoItem, index)">
@@ -20,14 +20,14 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex"
+import { mapActions, mapGetters } from "vuex"
 
 export default {
   computed: {
     ...mapGetters(["getTodoItems"]),
   },
   methods: {
-    ...mapMutations(["removeOneItem", "toggleComplete"]),
+    ...mapActions(["toggle", "removeOneItem"]),
   },
 }
 </script>

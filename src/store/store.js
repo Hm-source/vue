@@ -53,7 +53,17 @@ const store = createStore({
       return state.todoItems
     },
   },
-  actions: {},
+  actions: {
+    toggle({ commit }, todoItem) {
+      commit("toggleComplete", todoItem)
+    },
+    removeOneItem({ commit }, todoItem, index) {
+      commit("removeOneItem", todoItem, index)
+    },
+    clearAll({ commit }) {
+      commit("clearAll")
+    },
+  },
 })
 
 export default store

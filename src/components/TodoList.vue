@@ -11,7 +11,7 @@
           @click="toggleComplete(todoItem, index)"
         ></i>
         <span :class="{ textCompleted: todoItem.completed }"> {{ todoItem.item }}</span>
-        <span class="removeBtn" @click="removeTodo(todoItem, index)">
+        <span class="removeBtn" @click="removeOneItem(todoItem, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -20,19 +20,14 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapGetters, mapMutations } from "vuex"
 
 export default {
   computed: {
     ...mapGetters(["getTodoItems"]),
   },
   methods: {
-    removeTodo(todoItem) {
-      this.$store.commit("removeOneItem", todoItem)
-    },
-    toggleComplete(todoItem, index) {
-      this.$store.commit("toggleComplete", todoItem, index)
-    },
+    ...mapMutations(["removeOneItem", "toggleComplete"]),
   },
 }
 </script>

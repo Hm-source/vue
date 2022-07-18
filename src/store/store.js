@@ -40,11 +40,8 @@ const store = createStore({
     toggleComplete(state, todoItem) {
       const index = state.todoItems.findIndex((todo) => todo === todoItem)
       state.todoItems[index].completed = !state.todoItems[index].completed
-      console.log(index)
-      console.log(todoItem)
       localStorage.removeItem(todoItem.item)
       localStorage.setItem(todoItem.item, JSON.stringify(todoItem))
-      
     },
     clearAll(state) {
       localStorage.clear()

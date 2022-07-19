@@ -1,36 +1,13 @@
 <template>
   <div>
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <TodoHeader />
-    <TodoInput></TodoInput>
-    <TodoList></TodoList>
-    <TodoFooter></TodoFooter>
+    <router-link to="/" class="to-home"> <i class="fa fa-home" aria-hidden="true"></i></router-link>
+    <router-view to="/todos"></router-view>
   </div>
 </template>
 
-<script>
-import TodoInput from "./components/TodoInput.vue"
-import TodoHeader from "./components/TodoHeader.vue"
-import TodoFooter from "./components/TodoFooter.vue"
-import TodoList from "./components/TodoList.vue"
-
-export default {
-  components: {
-    TodoHeader,
-    TodoInput,
-    TodoFooter,
-    TodoList,
-  },
-}
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+@import "scss/style";
+.to-home.router-link-exact-active {
+  display: none;
 }
 </style>

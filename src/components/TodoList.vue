@@ -1,17 +1,18 @@
+<!-- eslint-disable vue/no-unused-vars -->
 <template>
   <div>
     <ul>
-      <li v-for="(todoItem, index) in getTodoItems" :key="todoItem.index">
+      <li v-for="(todoItem, index) in getTodoItems" :key="index">
         <i
           class="checkBtn fas fa-check"
           aria-hidden="true"
           :class="{
             checkBtnCompleted: todoItem.completed,
           }"
-          @click="toggle(todoItem, index)"
+          @click="toggle(todoItem)"
         ></i>
         <span :class="{ textCompleted: todoItem.completed }"> {{ todoItem.item }}</span>
-        <span class="removeBtn" @click="removeOneItem(todoItem, index)">
+        <span class="removeBtn" @click="removeOneItem(todoItem)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -28,6 +29,7 @@ export default {
   },
   methods: {
     ...mapActions(["toggle", "removeOneItem"]),
+    //this.$store.dispatch('toggle', todoItem)
   },
 }
 </script>

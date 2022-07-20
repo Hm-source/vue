@@ -11,7 +11,9 @@
           @click="toggle(todoItem, index)"
         ></i>
         <span :class="{ textCompleted: todoItem.completed }"> {{ todoItem.item }}</span>
+
         <span class="removeBtn" @click="removeOneItem(todoItem, index)">
+          <span class="date">{{ todoItem.date }}</span>
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -24,10 +26,10 @@ import { mapActions, mapGetters } from "vuex"
 
 export default {
   computed: {
-    ...mapGetters(["getTodoItems"]),
+    ...mapGetters("todoApp", ["getTodoItems"]),
   },
   methods: {
-    ...mapActions(["toggle", "removeOneItem"]),
+    ...mapActions("todoApp", ["toggle", "removeOneItem"]),
   },
 }
 </script>
@@ -64,5 +66,10 @@ li {
 .removeBtn {
   margin-left: auto;
   color: #de4343;
+}
+.date {
+  font-size: 5px;
+  color: green;
+  padding: 0 0.9rem;
 }
 </style>

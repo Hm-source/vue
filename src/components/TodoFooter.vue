@@ -8,7 +8,7 @@
 import { mapActions } from "vuex"
 export default {
   methods: {
-    ...mapActions(["clearAll"]),
+    ...mapActions("todoApp", ["clearAll"]),
   },
 }
 </script>

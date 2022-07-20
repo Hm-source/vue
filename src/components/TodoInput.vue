@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     addTodo() {
-      this.$store.commit("addTodo", this.newTodoItem)
+      this.$store.commit("todoApp/addTodo", this.newTodoItem)
       this.clearInput()
     },
     clearInput() {

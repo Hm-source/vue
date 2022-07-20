@@ -5,6 +5,7 @@
     <TodoInput></TodoInput>
     <TodoList></TodoList>
     <TodoFooter></TodoFooter>
+    <router-view></router-view>
   </div>
 </template>
 

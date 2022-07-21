@@ -3,7 +3,7 @@
     <ul>
       <li v-for="(diary, index) in getDiaries" :key="index">
         <span>
-          <router-link :to="`/diaries/detail/${index + 1}`">{{ "title :" + diary.title }}</router-link>
+          <router-link :to="`/diaries/detail/${index + 1}`">title : {{ diary.title }}</router-link>
         </span>
         &nbsp;&nbsp;
         <span class="date">{{ "date :" + diary.date }}</span>
@@ -48,6 +48,6 @@ li {
 .date {
   font-size: 12px;
   color: black;
-  text-align-last: right;
+  padding: 0 1rem;
 }
 </style>

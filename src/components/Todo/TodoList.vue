@@ -26,10 +26,10 @@ import { mapActions, mapGetters } from "vuex"
 
 export default {
   computed: {
-    ...mapGetters("todoApp", ["getTodoItems"]),
+    ...mapGetters("todo", ["getTodoItems"]),
   },
   methods: {
-    ...mapActions("todoApp", ["toggle", "removeOneItem"]),
+    ...mapActions("todo", ["toggle", "removeOneItem"]),
   },
 }
 </script>

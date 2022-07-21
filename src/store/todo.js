@@ -1,5 +1,3 @@
-import { createStore } from "vuex"
-
 const storage = {
   fetch() {
     const arr = []
@@ -15,16 +13,18 @@ const storage = {
   },
 }
 
-const store = createStore({
-  state: {
-    todoItems: storage.fetch(),
+export default {
+  namespaced: true,
+  state() {
+    return {
+      todoItems: storage.fetch(),
+    }
   },
   mutations: {
-    // state 변수는 외부 컴포넌트에서 수정 불가능하므로
-    // mutation 내 정의된 함수를 이용해야 상태의 변경 가능함.
     addTodo(state, todoItem) {
       if (todoItem !== "") {
-        let obj = { completed: false, item: todoItem }
+        let date = new Date()
+        let obj = { completed: false, item: todoItem, date: date.getFullYear() + "." + (date.getMonth() + 1) + "." + date.getDate() }
         localStorage.setItem(todoItem, JSON.stringify(obj))
         state.todoItems.push(obj)
         console.log(todoItem)
@@ -57,13 +57,11 @@ const store = createStore({
     toggle({ commit }, todoItem) {
       commit("toggleComplete", todoItem)
     },
-    removeOneItem({ commit }, todoItem, index) {
-      commit("removeOneItem", todoItem, index)
+    removeOneItem({ commit }, todoItem) {
+      commit("removeOneItem", todoItem)
     },
     clearAll({ commit }) {
       commit("clearAll")
     },
   },
-})
-
-export default store
+}

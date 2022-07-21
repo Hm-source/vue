@@ -1,10 +1,12 @@
 import { createStore } from "vuex"
-import todoApp from "./todoApp"
+import todo from "./todo"
+import diary from "./diary"
 
 const store = createStore({
   strict: process.env.NODE_ENV !== "production",
   modules: {
-    todoApp,
+    todo,
+    diary,
   },
 })
 

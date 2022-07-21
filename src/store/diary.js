@@ -10,7 +10,7 @@ export default {
       if (diary !== "") {
         let date = new Date()
         let obj = { title: diary.title, content: diary.item, date: date.getFullYear() + "." + (date.getMonth() + 1) + "." + date.getDate() }
-        localStorage.setItem(diary, JSON.stringify(obj))
+
         state.diaries.push(obj)
         console.log(diary)
       } else {
